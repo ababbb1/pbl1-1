@@ -4,11 +4,7 @@ export interface Action {
 }
 
 export interface State {
-  myDict: DictState
-}
-
-export interface DictState {
-  dictItemList: DictItem[]
+  dictList: DictItem[]
 }
 
 export interface DictItem {

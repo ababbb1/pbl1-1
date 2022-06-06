@@ -2,16 +2,15 @@ import DictTemplate from "./components/dictTemplate"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import DictList from "./components/dictList";
 import WriteForm from "./components/writeForm";
-import { useEffect } from "react"
-import { initDictState } from "./redux/modules/myDict"
-import { useDispatch } from "react-redux"
+import { useEffect } from "react";
+import { useAppDispatch } from "./redux/hooks";
+import { initializeState } from "./redux/dictReducer";
 
 function App() {
-  const getInitState = initDictState()
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
-    getInitState(dispatch)
+    dispatch(initializeState())
   }, [])
 
   return (

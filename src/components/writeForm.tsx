@@ -1,16 +1,16 @@
 import { useForm, FieldErrors } from "react-hook-form"
-import { createDictItem } from "../redux/modules/myDict"
 import { cls } from "../utils/fxs/className"
-import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { DictItem } from "../../src/utils/interfaces"
+import { useAppDispatch } from "../redux/hooks"
+import { addWord } from "../redux/dictReducer"
 
-interface WriteForm extends DictItem {
+interface WriteFormData extends DictItem {
   errors?: string //전역에러
 }
 
 export default function WriteForm() {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const navigate = useNavigate()
 
   const {
@@ -21,9 +21,9 @@ export default function WriteForm() {
     mode: "onSubmit"
   })
 
-  const onValid = (data: WriteForm) => {
+  const onValid = (data: WriteFormData) => {
     const {word, description, example = ""} = data
-    dispatch(createDictItem({word, description, example}))
+    dispatch(addWord({word, description, example}))
     navigate("/")
   }
   const onInvalid = (errors: FieldErrors) => {
