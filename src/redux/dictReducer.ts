@@ -16,7 +16,8 @@ export const dictSlice = createSlice({
   initialState,
   reducers: {
     addWord: (state, action: PayloadAction<DictItem>) => {
-      state.dictList = [...state.dictList, action.payload]
+      const tmp = state.dictList.filter(({word}) => word !== action.payload.word)
+      state.dictList = [...tmp, action.payload]
     }
   },
   extraReducers: (builder) => {

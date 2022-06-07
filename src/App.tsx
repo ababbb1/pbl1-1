@@ -14,7 +14,7 @@ function App() {
   }, [])
 
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter>
       <div className='bg-slate-200 w-full min-h-screen flex justify-center items-center'>
         <Routes>
           <Route path="/" element={<DictTemplate {...{title:"My Dictionary", content: <DictList />, isHome: true}} />} />

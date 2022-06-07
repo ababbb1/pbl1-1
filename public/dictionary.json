@@ -1,0 +1,4 @@
+[
+  {"word": "hello", "description": "안녕하세요", "example": "Hello, world!"},
+  {"word": "React", "description": "react", "example": "Hello, react!"}
+]
